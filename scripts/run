@@ -13,6 +13,8 @@ from ioflo.aid.sixing import *
 from ioflo.base import consoling
 console = consoling.getConsole()
 
+from mauga.demoing import solution
+
 def parseArgs():
     """
     Parse command line arguments
@@ -33,7 +35,7 @@ def parseArgs():
         help="File path name to console log file.")
     p.add_argument('-f', '--filepath',
             action='store',
-            required=True,
+            required=False,
             help="File path.")
     args = p.parse_args()
 
@@ -48,10 +50,18 @@ def parseArgs():
     args.verbose = verbosage  # converted value
     return args
 
+
 if __name__ == "__main__":
-    args = parseArgs()
+    #args = parseArgs()
 
-    print(args)
-    filepath = os.path.abspath(args.filepath)
-    fp = open(filepath, "r")
+    x = [1, 0, 0, 1, 1]
+    y = solution(x)
+    print(x, y)
 
+    x = [1, 1, 0, 1, 0, 1, 1]
+    y = solution(x)
+    print(x, y)
+
+    x = [1, 1, 0, 0, 1]
+    y = solution(x)
+    print(x, y)
